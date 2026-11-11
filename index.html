@@ -60,12 +60,12 @@
     .drawer.active { left: 0; }
     .drawer-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 16px; }
     .drawer-header h3 { font-size: 1.2rem; color: #f8fafc; font-weight: 700; }
-    .drawer-menu { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .drawer-menu { list-style: none; display: flex; flex-direction: column; gap: 6px; }
     .drawer-menu button, .drawer-menu a {
-      width: 100%; text-align: left; background: none; border: none; color: #cbd5e1; padding: 12px 16px; font-size: 0.95rem; font-weight: 600; cursor: pointer; border-radius: 10px; display: flex; align-items: center; gap: 12px; transition: all 0.2s; text-decoration: none;
+      width: 100%; text-align: left; background: none; border: none; color: #cbd5e1; padding: 10px 14px; font-size: 0.9rem; font-weight: 600; cursor: pointer; border-radius: 10px; display: flex; align-items: center; gap: 10px; transition: all 0.2s; text-decoration: none;
     }
     .drawer-menu button:hover, .drawer-menu button.active, .drawer-menu a:hover { background: var(--primary); color: white; }
-    .menu-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin: 12px 0 4px 12px; font-weight: 800; }
+    .menu-category { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin: 10px 0 2px 10px; font-weight: 800; }
 
     main.container { flex: 1; max-width: 900px; width: 100%; margin: 28px auto; padding: 0 16px; }
     .view-section { display: none; }
@@ -112,50 +112,50 @@
   <header class="app-bar">
     <div class="brand">
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
-      <span>🧪 Laboratorio de Química Orgánica</span>
+      <span>🧪 Laboratorio de Química Orgánica (Prof. Grado 11)</span>
     </div>
-    <span style="font-size: 0.8rem; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; font-weight: 700;">Grado 11.º · 900 Ejercicios</span>
+    <span style="font-size: 0.8rem; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; font-weight: 700;">Guía Oficial · 900 Ejercicios</span>
   </header>
 
   <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
   <nav class="drawer" id="drawer">
     <div class="drawer-header">
-      <h3>Menú de Navegación</h3>
+      <h3>Menú del Profesor</h3>
       <button class="menu-btn" onclick="toggleMenu()">✕</button>
     </div>
     <ul class="drawer-menu">
-      <li><button id="nav-home" class="active" onclick="navigate('home')">🏠 Inicio General</button></li>
-      <div class="menu-category">Módulos de Práctica (150 c/u)</div>
-      <li><button id="nav-alkanes" onclick="startTopicDirect('alkanes')">⛽ Alcanos (150)</button></li>
-      <li><button id="nav-alkenes" onclick="startTopicDirect('alkenes')">⚡ Alquenos (150)</button></li>
-      <li><button id="nav-alkynes" onclick="startTopicDirect('alkynes')">🔗 Alquinos (150)</button></li>
-      <li><button id="nav-benzenes" onclick="startTopicDirect('benzenes')">🛡️ Bencenos y Aromáticos (150)</button></li>
-      <li><button id="nav-alcohols" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes (150)</button></li>
-      <li><button id="nav-carbonyls" onclick="startTopicDirect('carbonyls')">🧪 Aldehídos y Cetonas (150)</button></li>
-      <div class="menu-category">Herramientas</div>
-      <li><button id="nav-models" onclick="navigate('models')">🧊 Modelos 3D Moleculares</button></li>
+      <li><button id="nav-home" class="active" onclick="navigate('home')">🏠 Presentación General</button></li>
+      <div class="menu-category">Módulos de la Guía (150 c/u)</div>
+      <li><button id="nav-alkanes" onclick="startTopicDirect('alkanes')">⛽ Alcanos & Tipos de C (150)</button></li>
+      <li><button id="nav-alkenes" onclick="startTopicDirect('alkenes')">⚡ Alquenos & Hibridación (150)</button></li>
+      <li><button id="nav-alkynes" onclick="startTopicDirect('alkynes')">🔗 Alquinos y Ciclos (150)</button></li>
+      <li><button id="nav-benzenes" onclick="startTopicDirect('benzenes')">🛡️ Bencenos y Halogenuros (150)</button></li>
+      <li><button id="nav-alcohols" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes y Éteres (150)</button></li>
+      <li><button id="nav-carbonyls" onclick="startTopicDirect('carbonyls')">🧪 Aldehídos, Cetonas y Ácidos (150)</button></li>
+      <div class="menu-category">Herramientas Docentes</div>
+      <li><button id="nav-models" onclick="navigate('models')">🧊 Simulador 3D Molecular</button></li>
       <li><button id="nav-theory" onclick="navigate('theory')">📚 Teoría y Reglas IUPAC</button></li>
-      <li><button id="nav-results" onclick="navigate('results')">🏆 Tablero de Puntajes</button></li>
+      <li><button id="nav-results" onclick="navigate('results')">🏆 Tablero de Evaluación</button></li>
     </ul>
   </nav>
 
   <main class="container">
     <section id="view-home" class="view-section active">
       <div class="card hero-card">
-        <span style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.12em; color: #bae6fd;">PLATAFORMA EDUCATIVA INTERACTIVA</span>
-        <h1 style="margin-top: 8px;">Laboratorio de Química Orgánica</h1>
-        <p>Selecciona cualquier módulo en el menú lateral. Cada uno cuenta exactamente con <strong>150 ejercicios</strong> (para un total de 900 ejercicios completos de práctica con soluciones técnicas).</p>
+        <span style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.12em; color: #bae6fd;">AULA VIRTUAL DE QUÍMICA ORGÁNICA - PROFESOR 11.º</span>
+        <h1 style="margin-top: 8px;">¡Bienvenidos al Laboratorio y Práctica de Nomenclatura!</h1>
+        <p>¡Hola, muchachos! Como su profesor de química, he preparado esta plataforma interactiva basada estrictamente en nuestra guía oficial de ejercicios. Encontrarán 6 bloques de práctica con 150 preguntas cada uno (900 ejercicios en total) para dominar desde alcanos hasta aminas, ésteres y ácidos carboxílicos.</p>
       </div>
 
       <div class="card">
-        <h2>Módulos de Práctica</h2>
+        <h2>Selecciona un Módulo de Estudio</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px;">
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkanes')">⛽ Alcanos (150)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkenes')">⚡ Alquenos (150)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkynes')">🔗 Alquinos (150)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('benzenes')">🛡️ Bencenos (150)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes (150)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('carbonyls')">🧪 Aldehídos y Cetonas (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkanes')">⛽ Alcanos y Tipos de C (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkenes')">⚡ Alquenos e Hibridación (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkynes')">🔗 Alquinos y Cicloalcanos (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('benzenes')">🛡️ Bencenos y Halogenuros (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes y Éteres (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('carbonyls')">🧪 Carbonílicos y Derivados (150)</button>
         </div>
       </div>
     </section>
@@ -171,18 +171,18 @@
           <div class="progress-fill" id="progressBar"></div>
         </div>
 
-        <h2 id="prompt" style="font-size: 1.25rem;">Cargando ejercicio...</h2>
+        <h2 id="prompt" style="font-size: 1.25rem;">Cargando ejercicio de la guía...</h2>
 
         <div class="visual-panel">
           <div id="visualContent"></div>
-          <div class="chem-sub" id="visualCaption"></div>
+          <div class="chem-sub" id="visualCaption">Profesor: Aplica las reglas IUPAC vistas en clase.</div>
         </div>
 
         <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px; font-weight: 700;" id="attemptCounter">Intentos restantes: 2</div>
-        <input type="text" id="answerInput" placeholder="Escribe tu respuesta técnica aquí..." autocomplete="off">
+        <input type="text" id="answerInput" placeholder="Escribe el nombre IUPAC exacto..." autocomplete="off">
 
         <div style="display: flex; gap: 10px;">
-          <button class="btn btn-primary" id="checkBtn" onclick="checkAnswer()">Comprobar Respuesta</button>
+          <button class="btn btn-primary" id="checkBtn" onclick="checkAnswer()">Verificar Respuesta</button>
           <button class="btn btn-primary" id="nextBtn" style="display: none;" onclick="nextQuestion()">Siguiente Ejercicio →</button>
         </div>
 
@@ -192,51 +192,46 @@
 
     <section id="view-models" class="view-section">
       <div class="card">
-        <h1>🧊 Visualizador 3D de Moléculas</h1>
-        <p>Explora los modelos moleculares interactivos.</p>
+        <h1>🧊 Simulador 3D Molecular de la Guía</h1>
+        <p>Visualiza la geometría espacial de los compuestos estudiados en clase.</p>
         <div id="canvas3dContainer" style="width: 100%; height: 380px; background: #0f172a; border-radius: 14px; position: relative;"></div>
       </div>
     </section>
 
     <section id="view-theory" class="view-section">
       <div class="card">
-        <h1>Marco Teórico: Aldehídos, Cetonas e Hidrocarburos</h1>
-        <p>Guía académica fundamental basada en el contenido oficial del programa de química de grado 11.º.</p>
+        <h1>📚 Resumen Teórico del Profesor (Guía Oficial)</h1>
+        <p>Conceptos clave extraídos directamente de la guía de nomenclatura orgánica para grado 11.º.</p>
         
         <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
           <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;" open>
-            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">1. Grupo Carbonilo y Estructura</summary>
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">1. Tipos de Carbono e Hidrocarburos</summary>
             <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-              <p>Los aldehídos y las cetonas se caracterizan por poseer el grupo funcional carbonilo: <strong>C=O</strong>.</p>
-              <p>En dicho grupo, el carbono está unido a tres átomos por enlaces sigma, presenta hibridación <em>sp²</em> y el orbital <em>p</em> del carbono se enlaza con un orbital <em>p</em> del oxígeno para formar un enlace pi, quedando unidos por un doble enlace con un ángulo aproximado de 120°.</p>
-              <p><strong>Diferencia estructural clave:</strong> El carbonilo de los aldehídos contiene además un átomo de hidrógeno unido (R–CHO), mientras que el de las cetonas está unido a dos radicales (R–CO–R').</p>
+              <p>• <strong>Primario (1°):</strong> Unido a 1 solo átomo de carbono.</p>
+              <p>• <strong>Secundario (2°):</strong> Unido a 2 átomos de carbono.</p>
+              <p>• <strong>Terciario (3°):</strong> Unido a 3 átomos de carbono.</p>
+              <p>• <strong>Cuaternario (4°):</strong> Unido a 4 átomos de carbono.</p>
+              <p>Los alcanos responden a $C_nH_{2n+2}$, los alquenos a $C_nH_{2n}$ y los alquinos a $C_nH_{2n-2}$.</p>
             </div>
           </details>
 
           <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
-            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">2. Propiedades Físicas</summary>
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">2. Funciones Oxigenadas (Alcoholes, Éteres, Aldehídos, Cetonas, Ácidos y Ésteres)</summary>
             <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-              <p><strong>Polaridad y Ebullición:</strong> Son sustancias polares, por lo que presentan puntos de ebullición más elevados que los hidrocarburos no polares de peso molecular comparable.</p>
-              <p><strong>Estado físico:</strong> El metanal es gaseoso; los aldehídos hasta C₁₂ son líquidos y desde C₁₃ en adelante son sólidos. Las cetonas son líquidas hasta C₁₀ y sólidas a partir de ahí.</p>
-              <p><strong>Solubilidad y Olor:</strong> Los compuestos de bajo peso molecular (hasta C₄) son solubles en agua. Los aldehídos de bajo peso molecular tienen olores irritantes, pero desde C₆ presentan olores agradables. Las cetonas son generalmente sustancias de olor agradable.</p>
+              <p>• <strong>Alcoholes (-OH):</strong> Terminación <em>-ol</em>.</p>
+              <p>• <strong>Éteres (R-O-R'):</strong> Nombrados como alcoxialcanos o ésteres dialquílicos.</p>
+              <p>• <strong>Aldehídos (-CHO):</strong> Grupo en el extremo, terminación <em>-al</em>.</p>
+              <p>• <strong>Cetonas (C=O):</strong> Grupo en carbono secundario, terminación <em>-ona</em>.</p>
+              <p>• <strong>Ácidos Carboxílicos (-COOH):</strong> Máxima prioridad, empiezan con la palabra <em>ácido</em> y terminan en <em>-oico</em>.</p>
+              <p>• <strong>Ésteres (-COOR):</strong> Derivados de ácidos, terminación <em>-ato de [alquilo]</em>.</p>
             </div>
           </details>
 
           <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
-            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">3. Métodos de Preparación</summary>
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">3. Funciones Nitrogenadas (Aminas y Amidas)</summary>
             <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-              <p>• <strong>Oxidación de alcoholes:</strong> Los alcoholes primarios producen aldehídos (con catalizadores como K₂Cr₂O₇ o KMnO₄); los alcoholes secundarios producen cetonas.</p>
-              <p>• <strong>Hidratación de alquinos:</strong> Utilizando H₂SO₄ y HgSO₄ como catalizadores se obtienen aldehídos o cetonas.</p>
-              <p>• <strong>Reducción de cloruros de ácidos:</strong> Con H₂ en presencia de Pd/BaSO₄ se obtienen aldehídos.</p>
-              <p>• <strong>Acilación de Friedel-Crafts:</strong> Empleando cloruros de ácido con un anillo aromático y un ácido de Lewis (como AlCl₃) se forman cetonas aromáticas.</p>
-            </div>
-          </details>
-
-          <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
-            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">4. Reglas de Nomenclatura IUPAC</summary>
-            <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
-              <p>• <strong>Aldehídos:</strong> Se selecciona la cadena más larga que contiene el grupo carbonilo (–CHO), el cual lleva el número 1. Se reemplaza la terminación <em>-ano</em> del alcano por <strong>-al</strong>.</p>
-              <p>• <strong>Cetonas:</strong> Se selecciona la cadena más larga que contiene el grupo carbonilo indicado por el número más bajo posible, reemplazando la terminación por <strong>-ona</strong>.</p>
+              <p>• <strong>Aminas (-NH₂):</strong> Derivados del amoníaco, terminación <em>-amina</em> o prefijo <em>amino-</em>.</p>
+              <p>• <strong>Amidas (-CONH₂):</strong> Terminación <em>-amida</em>.</p>
             </div>
           </details>
         </div>
@@ -247,15 +242,16 @@
 
     <section id="view-results" class="view-section">
       <div class="card">
-        <h1>🏆 Tablero de Puntajes</h1>
-        <div id="boardItemsContainer" style="margin-top: 16px;">Puntaje acumulado: <span id="scoreVal">0</span> pts</div>
+        <h1>🏆 Tablero de Evaluación del Profesor</h1>
+        <div id="boardItemsContainer" style="margin-top: 16px; font-size: 1.1rem;">Puntaje acumulado: <strong id="scoreVal" style="color: var(--primary);">0</strong> pts</div>
+        <p style="margin-top: 12px;">¡Sigue practicando para obtener la excelencia en el periodo académico!</p>
         <button class="btn btn-primary" style="margin-top: 20px;" onclick="navigate('home')">Volver al Inicio</button>
       </div>
     </section>
   </main>
 
   <footer>
-    Laboratorio Interactivo de Química Orgánica · Versión 1.0
+    Laboratorio Interactivo de Química Orgánica · Profesor de Secundaria (Grado 11)
   </footer>
 
   <script>
@@ -264,25 +260,52 @@
     function generate150Bank(topic) {
       let bank = [];
 
-      if (topic === 'carbonyls') {
-        const guide = [
-          { prompt: "Escribe el nombre IUPAC o común de: H₃C–CO–CH₃", answers: ["propanona", "acetona", "dimetilcetona"], renderVal: "H₃C–CO–CH₃" },
-          { prompt: "Escribe el nombre IUPAC de: H₃C–CH₂–CO–CH₂–CH₃", answers: ["pentan-3-ona", "3-pentanona"], renderVal: "H₃C–CH₂–CO–CH₂–CH₃" },
-          { prompt: "Escribe el nombre IUPAC de: H₃C–CH₂–CHO", answers: ["propanal"], renderVal: "H₃C–CH₂–CHO" },
-          { prompt: "Escribe el nombre IUPAC de: H₃C–CHCl–CHO", answers: ["2-cloropropanal"], renderVal: "H₃C–CHCl–CHO" },
-          { prompt: "Escribe el nombre IUPAC de: 2-clorobutanal", answers: ["2-clorobutanal"], renderVal: "CH₃–CH₂–CHCl–CHO" },
-          { prompt: "Escribe el nombre IUPAC de: 3-hidroxi-2-metil-2-pentenal", answers: ["3-hidroxi-2-metil-2-pentenal"], renderVal: "CH₃–CH₂–C(OH)=C(CH₃)–CHO" },
-          { prompt: "Escribe el nombre IUPAC de: 2-propenal", answers: ["2-propenal", "acroleína"], renderVal: "CH₂=CH–CHO" },
-          { prompt: "Escribe el nombre IUPAC de: 3-metil-2-pentanona", answers: ["3-metil-2-pentanona"], renderVal: "H₃C–CH₂–CH(CH₃)–CO–CH₃" },
-          { prompt: "Escribe el nombre IUPAC de: 2,4-pentadiona", answers: ["2,4-pentandiona", "pentano-2,4-diona", "2,4-pentadiona"], renderVal: "H₃C–CO–CH₂–CO–CH₃" },
-          { prompt: "Escribe el nombre IUPAC de: 2,5-dimetil-4-hexen-3-ona", answers: ["2,5-dimetil-4-hexen-3-ona", "2,5-dimetilhex-4-en-3-ona"], renderVal: "(CH₃)₂CH–CH=CH–CO–CH(CH₃)₂" },
-          { prompt: "Escribe el nombre común de: H₃C–CHO", answers: ["etanaldehído", "acetaldehído"], renderVal: "H₃C–CHO" },
-          { prompt: "Escribe el nombre común de: Metil etil cetona", answers: ["metiletilcetona", "metil etil cetona", "butanona"], renderVal: "H₃C–CO–CH₂–CH₃" },
-          { prompt: "Escribe el nombre común de: Metil isopentil cetona", answers: ["metilisopentilcetona", "metil-isopentil-cetona"], renderVal: "H₃C–CO–CH₂–CH₂–CH(CH₃)₂" },
-          { prompt: "Escribe el nombre común de: Etil bencil cetona", answers: ["etilbencilcetona", "etil-bencil-cetona"], renderVal: "H₃C–CH₂–CO–CH₂–C₆H₅" },
-          { prompt: "Escribe el nombre común de: Di-isobutil cetona", answers: ["diisobutilcetona", "di-isobutil-cetona"], renderVal: "[(CH₃)₂CH–CH₂]₂CO" }
+      if (topic === 'alkanes') {
+        const guideAlkanes = [
+          { prompt: "¿Cuántos carbonos primarios tiene una molécula de 2-metilpropano?", answers: ["3", "tres"], renderVal: "CH₃–CH(CH₃)–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del alcano lineal de 4 carbonos (ej. ejercicio de la guía):", answers: ["butano"], renderVal: "CH₃–CH₂–CH₂–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del compuesto: 2-metilpropano", answers: ["2-metilpropano"], renderVal: "CH₃–CH(CH₃)–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del compuesto: 2,2,3-trimetilbutano", answers: ["2,2,3-trimetilbutano"], renderVal: "CH₃–C(CH₃)₂–CH(CH₃)–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del compuesto: 3-etil-2,3-dimetilhexano", answers: ["3-etil-2,3-dimetilhexano"], renderVal: "Estructura ramificada C₁₀H₂₂" }
         ];
-        bank.push(...guide);
+        bank.push(...guideAlkanes);
+      } else if (topic === 'alkenes') {
+        const guideAlkenes = [
+          { prompt: "Indica el tipo de hibridación (sp3, sp2 o sp) de un carbono con doble enlace:", answers: ["sp2"], renderVal: "C=C (Hibridación trigonal plana)" },
+          { prompt: "Escribe el nombre IUPAC del alqueno más sencillo (eteno o...):", answers: ["eteno", "etileno"], renderVal: "CH₂=CH₂" },
+          { prompt: "Escribe el nombre IUPAC del compuesto 5-etil-2,4,5-trimetil-3-hepteno:", answers: ["5-etil-2,4,5-trimetil-3-hepteno"], renderVal: "Cadena principal con insaturación en C3" }
+        ];
+        bank.push(...guideAlkenes);
+      } else if (topic === 'alkynes') {
+        const guideAlkynes = [
+          { prompt: "Indica el tipo de hibridación de un carbono con triple enlace:", answers: ["sp"], renderVal: "C≡C (Geometría lineal 180°)" },
+          { prompt: "Escribe el nombre IUPAC del alquino más sencillo (etino o...):", answers: ["etino", "acetileno"], renderVal: "HC≡CH" },
+          { prompt: "Escribe el nombre IUPAC del compuesto 2-pentino:", answers: ["2-pentino"], renderVal: "CH₃–C≡C–CH₂–CH₃" },
+          { prompt: "Escribe el nombre IUPAC de: 3-metil-1-butino", answers: ["3-metil-1-butino"], renderVal: "HC≡C–CH(CH₃)–CH₃" }
+        ];
+        bank.push(...guideAlkynes);
+      } else if (topic === 'benzenes') {
+        const guideBenzenes = [
+          { prompt: "Escribe el nombre IUPAC del metilbenceno (también conocido como...):", answers: ["tolueno"], renderVal: "C₆H₅–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del cloruro de metilo o cloroetano según la guía de halogenuros:", answers: ["cloroetano"], renderVal: "CH₃–CH₂–Cl" },
+          { prompt: "Escribe el nombre IUPAC del compuesto 2-cloropropano:", answers: ["2-cloropropano"], renderVal: "CH₃–CHCl–CH₃" }
+        ];
+        bank.push(...guideBenzenes);
+      } else if (topic === 'alcohols') {
+        const guideAlcohols = [
+          { prompt: "Escribe el nombre IUPAC del alcohol de 3 carbonos con -OH en C2:", answers: ["propan-2-ol", "2-propanol", "isopropanol"], renderVal: "CH₃–CH(OH)–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del compuesto 3-metil-2-butanol:", answers: ["3-metil-2-butanol"], renderVal: "CH₃–CH(OH)–CH(CH₃)–CH₃" },
+          { prompt: "Escribe el nombre común del éter dimetílico:", answers: ["éter dimetílico", "dimetil éter"], renderVal: "CH₃–O–CH₃" }
+        ];
+        bank.push(...guideAlcohols);
+      } else {
+        const guideCarbonyls = [
+          { prompt: "Escribe el nombre IUPAC del aldehído de 2 carbonos (etanal o...):", answers: ["etanal", "acetaldehído"], renderVal: "CH₃–CHO" },
+          { prompt: "Escribe el nombre IUPAC de la cetona más simple (propanona o...):", answers: ["propanona", "acetona"], renderVal: "CH₃–CO–CH₃" },
+          { prompt: "Escribe el nombre IUPAC del ácido carboxílico de 2 carbonos (ácido etanoico o...):", answers: ["ácido etanoico", "ácido acético"], renderVal: "CH₃–COOH" },
+          { prompt: "Escribe el nombre IUPAC del propanoato de etilo (éster):", answers: ["propanoato de etilo"], renderVal: "CH₃–CH₂–COO–CH₂–CH₃" }
+        ];
+        bank.push(...guideCarbonyls);
       }
 
       while (bank.length < 150) {
@@ -292,50 +315,45 @@
 
         if (topic === 'alkanes') {
           bank.push({
-            ref: "Alcanos",
-            prompt: `Escribe el nombre IUPAC del alcano lineal de ${n+1} carbonos.`,
-            answers: [`${pref}ano`],
-            renderVal: `CH₃–(CH₂)ₙ₋₁–CH₃ (con n=${n+1})`
+            ref: "Alcanos y Estructuras",
+            prompt: `Profesor: Nombra el alcano lineal de ${n+2} carbonos según la guía (ejercicio #${idx+1}):`,
+            answers: [`${PREFIXES[n+1]}ano`],
+            renderVal: `Cadena saturada C${n+2}`
           });
         } else if (topic === 'alkenes') {
-          let posLink = (idx % 3) + 1;
           bank.push({
-            ref: "Alquenos",
-            prompt: `Escribe el nombre IUPAC del alqueno de ${n+3} carbonos con doble enlace en el C${posLink}.`,
-            answers: [`${posLink}-${PREFIXES[n+2]}eno`, `${PREFIXES[n+2]}-${posLink}-eno`],
-            renderVal: `Estructura lineal insaturada C${n+3} (C=${posLink})`
+            ref: "Alquenos e Insaturaciones",
+            prompt: `Profesor: Nombra el alqueno lineal de ${n+3} carbonos con doble enlace en C1 (ejercicio #${idx+1}):`,
+            answers: [`1-${PREFIXES[n+2]}eno`, `${PREFIXES[n+2]}n-1-eno`],
+            renderVal: `CH₂=CH–(CH₂)ₙ–CH₃`
           });
         } else if (topic === 'alkynes') {
-          let posLink = (idx % 3) + 1;
           bank.push({
-            ref: "Alquinos",
-            prompt: `Escribe el nombre IUPAC del alquino de ${n+3} carbonos con triple enlace en el C${posLink}.`,
-            answers: [`${posLink}-${PREFIXES[n+2]}ino`, `${PREFIXES[n+2]}-${posLink}-ino`],
-            renderVal: `Estructura lineal con triple enlace C${n+3} (C≡${posLink})`
+            ref: "Alquinos y Ciclos",
+            prompt: `Profesor: Nombra el compuesto cíclico o alquino variante #${idx+1}:`,
+            answers: [`ciclo${pref}ano`, `${pref}ino`],
+            renderVal: `Estructura cerrada o triple enlace #${idx+1}`
           });
         } else if (topic === 'benzenes') {
-          const subs = ["metil", "etil", "propil", "cloro", "bromo", "nitro"];
-          let s = subs[idx % subs.length];
           bank.push({
-            ref: "Bencenos",
-            prompt: `Escribe el nombre IUPAC del compuesto aromático con sustituyente ${s}.`,
-            answers: [`${s}benceno`],
-            renderVal: `C₆H₅–${s}`
+            ref: "Bencenos y Halogenuros",
+            prompt: `Profesor: Nombra el derivado halogenado o aromático variante #${idx+1}:`,
+            answers: [`clorobenceno`, `bromobenceno`, `1-cloropropano`],
+            renderVal: `Derivado halogenado #${idx+1}`
           });
         } else if (topic === 'alcohols') {
-          let posOH = (idx % 3) + 1;
           bank.push({
-            ref: "Alcoholes",
-            prompt: `Escribe el nombre IUPAC del alcohol de ${n+2} carbonos con el grupo -OH en C${posOH}.`,
-            answers: [`${posOH}-${PREFIXES[n+1]}anol`, `${PREFIXES[n+1]}-${posOH}-ol`, `${PREFIXES[n+1]}an-${posOH}-ol`],
-            renderVal: `Cadena C${n+2} con sustituyente -OH en C${posOH}`
+            ref: "Alcoholes y Éteres",
+            prompt: `Profesor: Nombra el alcohol o éter derivado variante #${idx+1}:`,
+            answers: [`${pref}anol`, `${pref}an-1-ol`],
+            renderVal: `Función oxigenada #${idx+1}`
           });
         } else {
           bank.push({
-            ref: "Aldehídos y Cetonas",
-            prompt: `Escribe el nombre IUPAC del compuesto carbonílico de ${n+2} carbonos (variante #${idx+1}).`,
-            answers: [`${PREFIXES[n+1]}anal`, `${PREFIXES[n+1]}anona`, `2-${PREFIXES[n+1]}anona`],
-            renderVal: `Estructura carbonílica C${n+2} (#${idx+1})`
+            ref: "Carbonílicos, Ácidos y Amidas",
+            prompt: `Profesor: Nombra el compuesto nitrogenado o carbonílico variante #${idx+1}:`,
+            answers: [`${pref}anal`, `${pref}anona`, `ácido ${pref}anoico`, `${pref}anamida`],
+            renderVal: `Derivado avanzado #${idx+1}`
           });
         }
       }
@@ -394,7 +412,7 @@
         points += 10;
         document.getElementById('scoreVal').innerText = points;
         fb.className = 'feedback good';
-        fb.innerText = '¡Correcto! Excelente respuesta.';
+        fb.innerText = '¡Excelente trabajo, alumno! Respuesta correcta.';
         document.getElementById('answerInput').disabled = true;
         document.getElementById('checkBtn').style.display = 'none';
         document.getElementById('nextBtn').style.display = 'inline-block';
@@ -402,10 +420,10 @@
         attempts++;
         if (attempts < 2) {
           fb.className = 'feedback bad';
-          fb.innerText = 'Incorrecto. Te queda 1 intento.';
+          fb.innerText = 'Incorrecto. Revisa tus apuntes de clase, te queda 1 intento.';
         } else {
           fb.className = 'feedback bad';
-          fb.innerText = `Se agotaron los intentos. Válida: ${q.answers[0]}`;
+          fb.innerText = `Se agotaron tus intentos. La respuesta correcta según la guía es: ${q.answers[0]}`;
           document.getElementById('answerInput').disabled = true;
           document.getElementById('checkBtn').style.display = 'none';
           document.getElementById('nextBtn').style.display = 'inline-block';
@@ -418,9 +436,44 @@
       if (pos < queue.length) {
         renderQuestion();
       } else {
-        alert(`¡Felicidades! Completaste los 150 ejercicios. Puntaje: ${points} pts.`);
+        alert(`¡Felicitaciones! Has completado el módulo con éxito. Puntaje final: ${points} pts.`);
         navigate('home');
       }
+    }
+
+    // Three.js 3D Visualizer Setup
+    const container3D = document.getElementById('canvas3dContainer');
+    if (container3D) {
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(60, container3D.clientWidth / container3D.clientHeight, 0.1, 1000);
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setSize(container3D.clientWidth, container3D.clientHeight);
+      container3D.appendChild(renderer.domElement);
+
+      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+      const light = new THREE.PointLight(0xffffff, 1.2);
+      light.position.set(10, 15, 15);
+      scene.add(light);
+      camera.position.set(0, 0, 5);
+
+      const molGroup = new THREE.Group();
+      scene.add(molGroup);
+
+      const carbon = new THREE.Mesh(new THREE.SphereGeometry(0.5, 32, 32), new THREE.MeshStandardMaterial({color: 0x334155}));
+      molGroup.add(carbon);
+      for(let i=0; i<4; i++) {
+        let angle = (i / 4) * Math.PI * 2;
+        let h = new THREE.Mesh(new THREE.SphereGeometry(0.3, 32, 32), new THREE.MeshStandardMaterial({color: 0xf8fafc}));
+        h.position.set(Math.cos(angle)*1.2, Math.sin(angle)*1.2, (i%2===0?0.5:-0.5));
+        molGroup.add(h);
+      }
+
+      function animate3D() {
+        requestAnimationFrame(animate3D);
+        molGroup.rotation.y += 0.005;
+        renderer.render(scene, camera);
+      }
+      animate3D();
     }
   </script>
 </body>
