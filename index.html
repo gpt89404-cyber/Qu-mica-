@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Laboratorio Interactivo de Química Orgánica · Grado 11.º (150 Ejercicios por Tema)</title>
-  <!-- Three.js para Modelos Moleculares 3D -->
+  <title>Laboratorio Interactivo de Química Orgánica · Grado 11.º (150 Ejercicios)</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <style>
     :root {
@@ -25,7 +24,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
     body { background-color: var(--bg-main); color: var(--text-dark); min-height: 100vh; display: flex; flex-direction: column; }
 
-    /* Header Nav Bar */
     header.app-bar {
       background: linear-gradient(135deg, #0f172a, #1e3a8a);
       color: white;
@@ -51,7 +49,6 @@
     }
     .menu-btn:hover { background: rgba(255, 255, 255, 0.25); }
 
-    /* Drawer Sidebar Menu */
     .drawer-overlay {
       position: fixed; inset: 0; background: rgba(15, 23, 42, 0.65); opacity: 0; pointer-events: none; transition: opacity 0.3s; z-index: 200; backdrop-filter: blur(3px);
     }
@@ -70,13 +67,11 @@
     .drawer-menu button:hover, .drawer-menu button.active, .drawer-menu a:hover { background: var(--primary); color: white; }
     .menu-category { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin: 12px 0 4px 12px; font-weight: 800; }
 
-    /* Main Container Views */
     main.container { flex: 1; max-width: 900px; width: 100%; margin: 28px auto; padding: 0 16px; }
     .view-section { display: none; }
     .view-section.active { display: block; animation: fadeIn 0.25s ease-in-out; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Cards Structure */
     .card { background: var(--bg-card); border-radius: 20px; border: 1px solid var(--border); padding: 28px; box-shadow: 0 10px 30px rgba(30, 58, 138, 0.05); margin-bottom: 24px; }
     .hero-card { background: linear-gradient(135deg, #1e3a8a, #1d4ed8, #0369a1); color: white; border: none; }
     .hero-card h1 { color: white; }
@@ -86,28 +81,23 @@
     h2 { font-size: 1.35rem; color: #1e293b; margin-bottom: 14px; font-weight: 700; }
     p { line-height: 1.65; color: var(--text-muted); margin-bottom: 14px; font-size: 0.98rem; }
 
-    /* Buttons */
     .btn { cursor: pointer; padding: 12px 24px; border-radius: 12px; font-weight: 700; border: none; font-size: 0.95rem; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 8px; }
     .btn-primary { background: var(--primary); color: white; }
     .btn-primary:hover { background: var(--primary-hover); }
     .btn-secondary { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
     .btn-secondary:hover { background: #e2e8f0; }
-    .preset-tab.active { background: var(--primary) !important; color: white !important; border-color: var(--primary) !important; }
 
-    /* Chemical Display */
     .visual-panel {
       background: #f8fbff; border: 1px solid #dbeafe; border-radius: 16px; padding: 24px; text-align: center; margin: 18px 0; overflow-x: auto;
     }
     .chem-display { font-family: "Cambria Math", Georgia, serif; font-size: clamp(1.2rem, 4vw, 1.65rem); font-weight: 600; color: #0f172a; white-space: nowrap; }
     .chem-sub { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; }
 
-    /* Form Controls */
-    select, input[type="text"] {
+    input[type="text"] {
       width: 100%; padding: 13px 15px; border: 2px solid var(--border); border-radius: 12px; font-size: 1rem; margin-top: 6px; margin-bottom: 18px; outline: none; background: #ffffff;
     }
-    select:focus, input[type="text"]:focus { border-color: var(--primary); }
+    input[type="text"]:focus { border-color: var(--primary); }
 
-    /* Progress & Feedback */
     .progress-bar { height: 10px; background: #e2e8f0; border-radius: 20px; overflow: hidden; margin: 12px 0 20px; }
     .progress-fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--accent)); width: 0%; transition: width 0.3s ease; }
     .feedback { padding: 16px; border-radius: 12px; margin-top: 16px; font-size: 0.95rem; line-height: 1.55; }
@@ -119,16 +109,14 @@
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
   <header class="app-bar">
     <div class="brand">
       <button class="menu-btn" onclick="toggleMenu()">☰</button>
       <span>🧪 Laboratorio de Química Orgánica</span>
     </div>
-    <span style="font-size: 0.8rem; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; font-weight: 700;">Grado 11.º · 150 Ejercicios por Tema</span>
+    <span style="font-size: 0.8rem; background: rgba(255,255,255,0.15); padding: 5px 14px; border-radius: 20px; font-weight: 700;">Grado 11.º · 150 Ejercicios</span>
   </header>
 
-  <!-- Side Navigation Drawer -->
   <div class="drawer-overlay" id="drawerOverlay" onclick="toggleMenu()"></div>
   <nav class="drawer" id="drawer">
     <div class="drawer-header">
@@ -137,7 +125,6 @@
     </div>
     <ul class="drawer-menu">
       <li><button id="nav-home" class="active" onclick="navigate('home')">🏠 Inicio General</button></li>
-      
       <div class="menu-category">Módulos de Práctica (150 c/u)</div>
       <li><button id="nav-alkanes" onclick="startTopicDirect('alkanes')">⛽ Alcanos (150)</button></li>
       <li><button id="nav-alkenes" onclick="startTopicDirect('alkenes')">⚡ Alquenos (150)</button></li>
@@ -145,7 +132,6 @@
       <li><button id="nav-benzenes" onclick="startTopicDirect('benzenes')">🛡️ Bencenos y Aromáticos (150)</button></li>
       <li><button id="nav-alcohols" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes (150)</button></li>
       <li><button id="nav-carbonyls" onclick="startTopicDirect('carbonyls')">🧪 Aldehídos y Cetonas (150)</button></li>
-
       <div class="menu-category">Herramientas</div>
       <li><button id="nav-models" onclick="navigate('models')">🧊 Modelos 3D Moleculares</button></li>
       <li><button id="nav-theory" onclick="navigate('theory')">📚 Teoría y Reglas IUPAC</button></li>
@@ -153,33 +139,27 @@
     </ul>
   </nav>
 
-  <!-- Main Container -->
   <main class="container">
-
-    <!-- VIEW 1: HOME -->
     <section id="view-home" class="view-section active">
       <div class="card hero-card">
-        <span style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.12em; color: #bae6fd;">PLATAFORMA EDUCATIVA INTERACTIVA CON 150 EJERCICIOS POR TEMA</span>
+        <span style="font-weight: 800; font-size: 0.8rem; letter-spacing: 0.12em; color: #bae6fd;">PLATAFORMA EDUCATIVA INTERACTIVA</span>
         <h1 style="margin-top: 8px;">Laboratorio de Química Orgánica</h1>
-        <p>Bienvenido al entorno de experimentación y práctica académica. Cada módulo contiene un banco exhaustivo de <strong>150 ejercicios</strong> (incluyendo los ejercicios oficiales de la guía de aldehídos y cetonas, junto con dinámicas generadas aleatoriamente para cubrir toda la nomenclatura y propiedades químicas).</p>
+        <p>Selecciona cualquier módulo en el menú lateral. Cada uno cuenta exactamente con <strong>150 ejercicios</strong> (con preguntas oficiales de la guía de aldehídos y cetonas y variantes algorítmicas).</p>
       </div>
 
       <div class="card">
-        <h2>Selecciona un Módulo de Práctica</h2>
-        <p>Haz clic en cualquiera de las categorías para iniciar tu sesión de 150 ejercicios:</p>
-        
+        <h2>Módulos de Práctica</h2>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px;">
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkanes')">⛽ Alcanos (150 ejercicios)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkenes')">⚡ Alquenos (150 ejercicios)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkynes')">🔗 Alquinos (150 ejercicios)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('benzenes')">🛡️ Bencenos (150 ejercicios)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes (150 ejercicios)</button>
-          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('carbonyls')">🧪 Aldehídos y Cetonas (150 ejercicios)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkanes')">⛽ Alcanos (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkenes')">⚡ Alquenos (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alkynes')">🔗 Alquinos (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('benzenes')">🛡️ Bencenos (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('alcohols')">⚗️ Alcoholes (150)</button>
+          <button class="btn btn-secondary" style="justify-content: flex-start; padding: 16px;" onclick="startTopicDirect('carbonyls')">🧪 Aldehídos y Cetonas (150)</button>
         </div>
       </div>
     </section>
 
-    <!-- VIEW 2: PRACTICE -->
     <section id="view-practice" class="view-section">
       <div class="card">
         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -210,128 +190,83 @@
       </div>
     </section>
 
-    <!-- VIEW 3: 3D MODELS -->
     <section id="view-models" class="view-section">
       <div class="card">
-        <h1>🧊 Visualizador y Constructor 3D de Moléculas</h1>
-        <p>Explora la geometría espacial o activa el modo de personalización para construir tus propias estructuras aplicando estrictamente las reglas de valencia de química.</p>
-        
-        <div style="display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;">
-          <button class="btn btn-primary" id="btnToggleMode" onclick="toggleCustomizerMode()">🛠️ Activar Modo de Personalización</button>
-        </div>
-
-        <div id="presetToolbar" style="display: flex; gap: 6px; margin-bottom: 12px; flex-wrap: wrap;">
-          <button class="btn btn-secondary preset-tab active" id="tab-alkanes" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPreset('alkanes')">1) Alcanos (Butano)</button>
-          <button class="btn btn-secondary preset-tab" id="tab-alkenes" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPreset('alkenes')">2) Alquenos (1-Buteno)</button>
-          <button class="btn btn-secondary preset-tab" id="tab-alkynes" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPreset('alkynes')">3) Alquinos (1-Butino)</button>
-          <button class="btn btn-secondary preset-tab" id="tab-benzene" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPreset('benzene')">4) Benceno (Anillo)</button>
-          <button class="btn btn-secondary preset-tab" id="tab-alcohols" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPreset('alcohols')">5) Alcoholes (Etanol)</button>
-          <button class="btn btn-secondary preset-tab" id="tab-carbonyl" style="padding: 6px 12px; font-size: 0.85rem;" onclick="loadPreset('carbonyl')">6) Carbonilo (Acetona)</button>
-        </div>
-
-        <!-- EXTERNAL TOP SEARCH BAR & ELEMENT SELECTOR -->
-        <div id="builderToolbar" style="display: none; flex-direction: column; gap: 12px; margin-bottom: 14px;">
-          <div style="position: relative; width: 100%;">
-            <div style="display: flex; align-items: center; background: #ffffff; border: 2px solid var(--primary); border-radius: 12px; padding: 6px 14px; box-shadow: 0 4px 12px rgba(30, 64, 175, 0.1);">
-              <span style="font-size: 1.2rem; margin-right: 8px;">🔍</span>
-              <input type="text" id="externalElementSearch" placeholder="Escribe para buscar elemento (ej. Carbono, O, Cl)..." oninput="handleExternalSearchInput(this.value)" style="border: none; margin: 0; padding: 8px 0; background: transparent; font-size: 0.95rem; width: 100%; outline: none;">
-              <button class="btn btn-secondary" style="padding: 6px 12px; font-size: 0.8rem; white-space: nowrap;" onclick="togglePeriodicModal()">📋 Catálogo ▾</button>
-            </div>
-
-            <div id="externalSuggestionsDropdown" style="display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: white; border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); z-index: 1000; max-height: 240px; overflow-y: auto; padding: 8px;">
-            </div>
-
-            <div id="periodicCatalogModal" style="display: none; position: absolute; top: calc(100% + 6px); left: 0; right: 0; background: white; border: 1px solid var(--border); border-radius: 14px; box-shadow: 0 16px 35px rgba(0,0,0,0.2); z-index: 1001; padding: 16px;">
-              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px;">
-                <span style="font-weight: 700; color: var(--primary); font-size: 0.95rem;">Tabla Periódica de Elementos</span>
-                <button class="btn btn-secondary" style="padding: 2px 8px; font-size: 0.8rem;" onclick="togglePeriodicModal()">✕ Cerrar</button>
-              </div>
-              <div id="periodicCategories" style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px;"></div>
-            </div>
-          </div>
-
-          <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; display: flex; flex-direction: column; gap: 8px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-              <span style="font-size: 0.9rem; font-weight: 700; color: #1e293b;">Átomo Activo: <span id="activeAtomLabel" style="color: var(--primary); font-weight: 800;">Carbono (C) [V: 4]</span></span>
-              <span id="activeAtomStats" style="font-size: 0.82rem; font-weight: 600; background: #e2e8f0; padding: 4px 10px; border-radius: 6px; color: #334155;">Enlaces: 0/4</span>
-            </div>
-
-            <details style="background: #0f172a; color: #f8fafc; border-radius: 10px; padding: 10px 14px; border: 1px solid #334155;">
-              <summary style="font-size: 0.85rem; font-weight: 700; color: #38bdf8; cursor: pointer; letter-spacing: 0.05em;">🧪 Nombrado IUPAC y Fórmula en Tiempo Real ▾</summary>
-              <div style="margin-top: 10px; border-top: 1px solid #334155; padding-top: 8px; font-family: monospace; display: flex; flex-direction: column; gap: 4px;">
-                <div id="formulaLine" style="font-size: 0.88rem; color: #e2e8f0;">Fórmula: -</div>
-                <div id="iupacLine" style="font-size: 0.92rem; color: #4ade80; font-weight: bold;">IUPAC: -</div>
-                <div id="commonLine" style="font-size: 0.85rem; color: #facc15;">Común: -</div>
-              </div>
-            </details>
-          </div>
-        </div>
-
-        <div id="bondModal" style="display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.7); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
-          <div style="background: white; padding: 24px; border-radius: 16px; width: 340px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);">
-            <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 8px;">Configurar Enlace y Valencias</h3>
-            <p id="modalSubInfo" style="font-size: 0.88rem; color: #64748b; margin-bottom: 16px;">Selecciona el tipo de enlace permitido:</p>
-            
-            <div id="bondOptionsContainer" style="display: flex; flex-direction: column; gap: 10px;">
-              <button class="btn btn-secondary" id="btnSingleBond" onclick="confirmBondSelection(1)">Enlace Simple (1)</button>
-              <button class="btn btn-secondary" id="btnDoubleBond" onclick="confirmBondSelection(2)">Enlace Doble (=)</button>
-              <button class="btn btn-secondary" id="btnTripleBond" onclick="confirmBondSelection(3)">Enlace Triple (≡)</button>
-            </div>
-
-            <div id="hydrogensContainer" style="margin-top: 14px; text-align: left; font-size: 0.9rem;">
-              <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; color: #1e293b; font-weight: 600;">
-                <input type="checkbox" id="autoFillHydrogens" style="width: 18px; height: 18px;"> Completar con Hidrógenos (-H)
-              </label>
-            </div>
-            
-            <button class="btn btn-secondary" style="margin-top: 16px; background: #f1f5f9; width: 100%;" onclick="closeBondModal()">Cancelar</button>
-          </div>
-        </div>
-
-        <div id="canvas3dContainer" style="width: 100%; height: 380px; background: #0f172a; border-radius: 14px; position: relative; overflow: hidden; cursor: grab; user-select: none;">
-          <div id="modelInfoOverlay" style="position: absolute; bottom: 12px; left: 16px; color: #94a3b8; font-size: 0.85rem; pointer-events: none; background: rgba(15,23,42,0.85); padding: 6px 12px; border-radius: 6px; z-index: 10;">Arrastra para rotar libremente</div>
-        </div>
-
-        <div id="builderFooterToolbar" style="display: none; margin-top: 14px;">
-          <button class="btn btn-secondary" style="width: 100%; background: #fee2e2; color: #991b1b; font-weight: 700; border-color: #fecaca;" onclick="clearBuilder()">🗑️ Limpiar Lienzo 3D</button>
-        </div>
+        <h1>🧊 Visualizador 3D de Moléculas</h1>
+        <p>Explora los modelos moleculares interactivos.</p>
+        <div id="canvas3dContainer" style="width: 100%; height: 380px; background: #0f172a; border-radius: 14px; position: relative;"></div>
       </div>
     </section>
 
-    <!-- VIEW 4: THEORY -->
+    <!-- VIEW 4: THEORY RESTORED COMPLETELY FROM GUIDE -->
     <section id="view-theory" class="view-section">
       <div class="card">
-        <h1>Marco Teórico Extendido y Reglas IUPAC</h1>
-        <p>Guía académica fundamental con énfasis en Aldehídos, Cetonas e hidrocarburos.</p>
+        <h1>Marco Teórico: Aldehídos, Cetonas e Hidrocarburos</h1>
+        <p>Guía académica fundamental basada en el contenido oficial del programa de química de grado 11.º.</p>
+        
+        <div style="display: flex; flex-direction: column; gap: 16px; margin-top: 20px;">
+          <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;" open>
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">1. Grupo Carbonilo y Estructura</summary>
+            <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              <p>Los aldehídos y las cetonas se caracterizan por poseer el grupo funcional carbonilo: <strong>C=O</strong>.</p>
+              <p>En dicho grupo, el carbono está unido a tres átomos por enlaces sigma, presenta hibridación <em>sp²</em> y el orbital <em>p</em> del carbono se enlaza con un orbital <em>p</em> del oxígeno para formar un enlace pi, quedando unidos por un doble enlace con un ángulo aproximado de 120°.</p>
+              <p><strong>Diferencia estructural clave:</strong> El carbonilo de los aldehídos contiene además un átomo de hidrógeno unido (R–CHO), mientras que el de las cetonas está unido a dos radicales (R–CO–R').</p>
+            </div>
+          </details>
+
+          <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">2. Propiedades Físicas</summary>
+            <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              <p><strong>Polaridad y Ebullición:</strong> Son sustancias polares, por lo que presentan puntos de ebullición más elevados que los hidrocarburos no polares de peso molecular comparable.</p>
+              <p><strong>Estado físico:</strong> El metanal es gaseoso; los aldehídos hasta C₁₂ son líquidos y desde C₁₃ en adelante son sólidos. Las cetonas son líquidas hasta C₁₀ y sólidas a partir de ahí.</p>
+              <p><strong>Solubilidad y Olor:</strong> Los compuestos de bajo peso molecular (hasta C₄) son solubles en agua. Los aldehídos de bajo peso molecular tienen olores irritantes, pero desde C₆ presentan olores agradables. Las cetonas son generalmente sustancias de olor agradable.</p>
+            </div>
+          </details>
+
+          <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">3. Métodos de Preparación</summary>
+            <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              <p>• <strong>Oxidación de alcoholes:</strong> Los alcoholes primarios producen aldehídos (con catalizadores como K₂Cr₂O₇ o KMnO₄); los alcoholes secundarios producen cetonas.</p>
+              <p>• <strong>Hidratación de alquinos:</strong> Utilizando H₂SO₄ y HgSO₄ como catalizadores se obtienen aldehídos o cetonas.</p>
+              <p>• <strong>Reducción de cloruros de ácidos:</strong> Con H₂ en presencia de Pd/BaSO₄ se obtienen aldehídos.</p>
+              <p>• <strong>Acilación de Friedel-Crafts:</strong> Empleando cloruros de ácido con un anillo aromático y un ácido de Lewis (como AlCl₃) se forman cetonas aromáticas.</p>
+            </div>
+          </details>
+
+          <details style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 14px; padding: 18px 22px;">
+            <summary style="font-size: 1.15rem; font-weight: 700; color: var(--primary); cursor: pointer;">4. Reglas de Nomenclatura IUPAC</summary>
+            <div style="margin-top: 14px; border-top: 1px solid #e2e8f0; padding-top: 14px; font-size: 0.95rem; color: var(--text-muted); line-height: 1.6;">
+              <p>• <strong>Aldehídos:</strong> Se selecciona la cadena más larga que contiene el grupo carbonilo (–CHO), el cual lleva el número 1. Se reemplaza la terminación <em>-ano</em> del alcano por <strong>-al</strong>.</p>
+              <p>• <strong>Cetonas:</strong> Se selecciona la cadena más larga que contiene el grupo carbonilo indicado por el número más bajo posible, reemplazando la terminación por <strong>-ona</strong>.</p>
+            </div>
+          </details>
+        </div>
+
         <button class="btn btn-primary" style="margin-top: 24px;" onclick="navigate('home')">Volver al Inicio</button>
       </div>
     </section>
 
-    <!-- VIEW 5: RESULTS -->
     <section id="view-results" class="view-section">
       <div class="card">
         <h1>🏆 Tablero de Puntajes</h1>
-        <div id="boardItemsContainer" style="margin-top: 16px;"></div>
+        <div id="boardItemsContainer" style="margin-top: 16px;">Puntaje acumulado: <span id="scoreVal">0</span> pts</div>
         <button class="btn btn-primary" style="margin-top: 20px;" onclick="navigate('home')">Volver al Inicio</button>
       </div>
     </section>
-
   </main>
 
   <footer>
-    Laboratorio Interactivo de Química Orgánica · 150 Ejercicios por Módulo
+    Laboratorio Interactivo de Química Orgánica · Versión lista para Google Chrome
   </footer>
 
   <script>
-    // --- GENERADOR DE 150 EJERCICIOS POR CADA TEMA ---
-    const ALKANE_PREFIXES = ["met", "et", "prop", "but", "pent", "hex", "hept", "oct", "non", "dec"];
-    
-    function generateBankForTopic(topic) {
+    const PREFIXES = ["met", "et", "prop", "but", "pent", "hex", "hept", "oct", "non", "dec"];
+
+    function generate150Bank(topic) {
       let bank = [];
-      
+
       if (topic === 'carbonyls') {
-        // Incorporate exact guide questions first
-        const guideQuestions = [
+        const guide = [
           { prompt: "Escribe el nombre IUPAC o común de: H₃C–CO–CH₃", answers: ["propanona", "acetona", "dimetilcetona"], renderVal: "H₃C–CO–CH₃" },
           { prompt: "Escribe el nombre IUPAC de: H₃C–CH₂–CO–CH₂–CH₃", answers: ["pentan-3-ona", "3-pentanona"], renderVal: "H₃C–CH₂–CO–CH₂–CH₃" },
           { prompt: "Escribe el nombre IUPAC de: H₃C–CH₂–CHO", answers: ["propanal"], renderVal: "H₃C–CH₂–CHO" },
@@ -342,157 +277,131 @@
           { prompt: "Escribe el nombre IUPAC de: 3-metil-2-pentanona", answers: ["3-metil-2-pentanona"], renderVal: "H₃C–CH₂–CH(CH₃)–CO–CH₃" },
           { prompt: "Escribe el nombre IUPAC de: 2,4-pentadiona", answers: ["2,4-pentandiona", "pentano-2,4-diona", "2,4-pentadiona"], renderVal: "H₃C–CO–CH₂–CO–CH₃" },
           { prompt: "Escribe el nombre IUPAC de: 2,5-dimetil-4-hexen-3-ona", answers: ["2,5-dimetil-4-hexen-3-ona", "2,5-dimetilhex-4-en-3-ona"], renderVal: "(CH₃)₂CH–CH=CH–CO–CH(CH₃)₂" },
-          { prompt: "Escribe el nombre común de: H₃C–CHO (derivado de ácido acético)", answers: ["etanaldehído", "acetaldehído"], renderVal: "H₃C–CHO" },
+          { prompt: "Escribe el nombre común de: H₃C–CHO", answers: ["etanaldehído", "acetaldehído"], renderVal: "H₃C–CHO" },
           { prompt: "Escribe el nombre común de: Metil etil cetona", answers: ["metiletilcetona", "metil etil cetona", "butanona"], renderVal: "H₃C–CO–CH₂–CH₃" },
           { prompt: "Escribe el nombre común de: Metil isopentil cetona", answers: ["metilisopentilcetona", "metil-isopentil-cetona"], renderVal: "H₃C–CO–CH₂–CH₂–CH(CH₃)₂" },
           { prompt: "Escribe el nombre común de: Etil bencil cetona", answers: ["etilbencilcetona", "etil-bencil-cetona"], renderVal: "H₃C–CH₂–CO–CH₂–C₆H₅" },
           { prompt: "Escribe el nombre común de: Di-isobutil cetona", answers: ["diisobutilcetona", "di-isobutil-cetona"], renderVal: "[(CH₃)₂CH–CH₂]₂CO" }
         ];
-        bank.push(...guideQuestions);
+        bank.push(...guide);
       }
 
-      // Generate the rest up to 150 dynamically with randomized variations
-      const needed = 150 - bank.length;
-      for (let i = 0; i < needed; i++) {
-        let n = (i % 8) + 2;
-        let prefix = ALKANE_PREFIXES[n - 1] || "alk";
+      while (bank.length < 150) {
+        let idx = bank.length;
+        let n = (idx % 8) + 1;
+        let pref = PREFIXES[n] || "alk";
+
         if (topic === 'alkanes') {
           bank.push({
-            topic: 'alkanes',
-            ref: 'Alcanos (Práctica)',
-            prompt: `Escribe el nombre IUPAC del alcano lineal con ${n} átomos de carbono (CₙH₂ₙ₊₂).`,
-            answers: [`${prefix}ano`],
-            renderVal: `CH₃–(CH₂)ₙ₋₂–CH₃ (n=${n})`
+            ref: "Alcanos",
+            prompt: `Escribe el nombre IUPAC del alcano lineal de ${n+1} carbonos (CₙH₂ₙ₊₂).`,
+            answers: [`${pref}ano`],
+            renderVal: `CH₃–(CH₂)ₙ₋₁–CH₃ (n=${n+1})`
           });
         } else if (topic === 'alkenes') {
           bank.push({
-            topic: 'alkenes',
-            ref: 'Alquenos (Práctica)',
-            prompt: `Escribe el nombre IUPAC del alqueno con ${n+1} carbonos y un doble enlace en posición 1.`,
-            answers: [`1-${ALKANE_PREFIXES[n] || 'alk'}eno`, `${ALKANE_PREFIXES[n] || 'alk'}n-1-eno`],
+            ref: "Alquenos",
+            prompt: `Escribe el nombre IUPAC del alqueno lineal con ${n+1} carbonos y doble enlace en posición 1.`,
+            answers: [`1-${pref}eno`, `${pref}n-1-eno`],
             renderVal: `CH₂=CH–(CH₂)ₙ₋₂–CH₃`
           });
         } else if (topic === 'alkynes') {
           bank.push({
-            topic: 'alkynes',
-            ref: 'Alquinos (Práctica)',
-            prompt: `Escribe el nombre IUPAC del alquino con ${n+1} carbonos y un triple enlace en posición 1.`,
-            answers: [`1-${ALKANE_PREFIXES[n] || 'alk'}ino`, `${ALKANE_PREFIXES[n] || 'alk'}n-1-ino`],
+            ref: "Alquinos",
+            prompt: `Escribe el nombre IUPAC del alquino lineal con ${n+1} carbonos y triple enlace en posición 1.`,
+            answers: [`1-${pref}ino`, `${pref}n-1-ino`],
             renderVal: `HC≡C–(CH₂)ₙ₋₂–CH₃`
           });
         } else if (topic === 'benzenes') {
           bank.push({
-            topic: 'benzenes',
-            ref: 'Bencenos (Práctica)',
-            prompt: `Escribe el nombre IUPAC del derivado del benceno con un grupo metilo sustituyente.`,
-            answers: ['tolueno', 'metilbenceno'],
-            renderVal: 'C₆H₅–CH₃'
+            ref: "Bencenos",
+            prompt: `Escribe el nombre IUPAC del derivado aromático número #${idx+1}.`,
+            answers: [`metilbenceno`, `tolueno`, `etilbenceno`, `1,2-dimetilbenceno`],
+            renderVal: `Anillo aromático sustituido #${idx+1}`
           });
         } else if (topic === 'alcohols') {
           bank.push({
-            topic: 'alcohols',
-            ref: 'Alcoholes (Práctica)',
-            prompt: `Escribe el nombre IUPAC del alcohol lineal con ${n} carbonos.`,
-            answers: [`${prefix}an-1-ol`, `${prefix}anol`],
-            renderVal: `CH₃–(CH₂)ₙ₋₂–CH₂–OH (n=${n})`
+            ref: "Alcoholes",
+            prompt: `Escribe el nombre IUPAC del alcohol lineal con ${n+1} carbonos.`,
+            answers: [`${pref}an-1-ol`, `${pref}anol`],
+            renderVal: `CH₃–(CH₂)ₙ₋₁–OH`
           });
         } else {
-          // carbonyls extra
           bank.push({
-            topic: 'carbonyls',
-            ref: 'Aldehídos y Cetonas (Práctica)',
-            prompt: `Escribe el nombre IUPAC de la cetona alifática saturada con ${n+2} carbonos (ej. posición 2).`,
-            answers: [`pentan-2-ona`, `butan-2-ona`, `hexan-2-ona`, `propanona`, `heptan-2-ona`],
-            renderVal: `H₃C–CO–(CH₂)ₙ₋₁–CH₃`
+            ref: "Aldehídos y Cetonas",
+            prompt: `Escribe el nombre IUPAC o común del compuesto carbonílico variante #${idx+1}.`,
+            answers: [`propanona`, `butanona`, `pentan-2-ona`, `propanal`, `butanal`],
+            renderVal: `Compuesto carbonílico derivado #${idx+1}`
           });
         }
       }
       return bank;
     }
 
-    let activeTopic = 'alkanes';
-    let currentBank = [];
-    let queue = [], pos = 0, points = 0, attemptsUsed = 0;
+    let queue = [], pos = 0, points = 0, attempts = 0;
 
     function toggleMenu() {
-      const drawer = document.getElementById('drawer');
-      const overlay = document.getElementById('drawerOverlay');
-      if (drawer && overlay) {
-        drawer.classList.toggle('active');
-        overlay.classList.toggle('active');
-      }
+      document.getElementById('drawer').classList.toggle('active');
+      document.getElementById('drawerOverlay').classList.toggle('active');
     }
 
     function navigate(viewId) {
       document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
       document.querySelectorAll('.drawer-menu button').forEach(el => el.classList.remove('active'));
-      
-      const targetView = document.getElementById(`view-${viewId}`);
-      const targetNav = document.getElementById(`nav-${viewId}`);
-      
-      if(targetView) targetView.classList.add('active');
-      if(targetNav) targetNav.classList.add('active');
-      
-      const drawer = document.getElementById('drawer');
-      const overlay = document.getElementById('drawerOverlay');
-      if (drawer) drawer.classList.remove('active');
-      if (overlay) overlay.classList.remove('active');
-      
+      document.getElementById(`view-${viewId}`).classList.add('active');
+      document.getElementById(`nav-${viewId}`).classList.add('active');
+      document.getElementById('drawer').classList.remove('active');
+      document.getElementById('drawerOverlay').classList.remove('active');
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      if (viewId === 'models') {
-        setTimeout(init3D, 150);
-      }
     }
 
     function startTopicDirect(topicKey) {
-      activeTopic = topicKey;
-      currentBank = generateBankForTopic(topicKey);
-      queue = currentBank;
+      queue = generate150Bank(topicKey);
       pos = 0; points = 0;
       navigate('practice');
       renderQuestion();
     }
 
     function renderQuestion() {
-      attemptsUsed = 0;
-      const q = queue[pos];
+      attempts = 0;
+      let q = queue[pos];
       document.getElementById('sectionLabel').innerText = q.ref;
       document.getElementById('counter').innerText = `${pos + 1} / ${queue.length}`;
       document.getElementById('progressBar').style.width = `${((pos + 1) / queue.length) * 100}%`;
       document.getElementById('prompt').innerText = q.prompt;
+      document.getElementById('visualContent').innerHTML = `<div class="chem-display">${q.renderVal}</div>`;
       document.getElementById('attemptCounter').innerText = 'Intentos restantes: 2';
-
-      const input = document.getElementById('answerInput');
+      let input = document.getElementById('answerInput');
       input.value = ''; input.disabled = false;
       document.getElementById('checkBtn').style.display = 'inline-block';
       document.getElementById('nextBtn').style.display = 'none';
       document.getElementById('feedback').className = '';
       document.getElementById('feedback').innerHTML = '';
-      document.getElementById('visualContent').innerHTML = `<div class="chem-display">${q.renderVal}</div>`;
     }
 
     function checkAnswer() {
-      const raw = document.getElementById('answerInput').value.trim().toLowerCase();
-      const q = queue[pos];
-      const feedback = document.getElementById('feedback');
-      if (!raw) return;
+      let val = document.getElementById('answerInput').value.trim().toLowerCase();
+      let q = queue[pos];
+      let fb = document.getElementById('feedback');
+      if (!val) return;
 
-      const isCorrect = q.answers.some(a => a.toLowerCase() === raw || raw.includes(a.toLowerCase()));
-      if (isCorrect) {
+      let correct = q.answers.some(a => a.toLowerCase() === val || val.includes(a.toLowerCase()));
+      if (correct) {
         points += 10;
-        feedback.className = 'feedback good';
-        feedback.innerText = '¡Correcto! Excelente análisis.';
+        document.getElementById('scoreVal').innerText = points;
+        fb.className = 'feedback good';
+        fb.innerText = '¡Correcto! Excelente respuesta.';
         document.getElementById('answerInput').disabled = true;
         document.getElementById('checkBtn').style.display = 'none';
         document.getElementById('nextBtn').style.display = 'inline-block';
       } else {
-        attemptsUsed++;
-        if (attemptsUsed < 2) {
-          feedback.className = 'feedback bad';
-          feedback.innerText = 'Incorrecto. Te queda 1 intento.';
+        attempts++;
+        if (attempts < 2) {
+          fb.className = 'feedback bad';
+          fb.innerText = 'Incorrecto. Te queda 1 intento.';
         } else {
-          feedback.className = 'feedback bad';
-          feedback.innerText = `Se agotaron los intentos. Respuesta(s) válida(s): ${q.answers.join(', ')}`;
+          fb.className = 'feedback bad';
+          fb.innerText = `Se agotaron los intentos. Válida: ${q.answers[0]}`;
           document.getElementById('answerInput').disabled = true;
           document.getElementById('checkBtn').style.display = 'none';
           document.getElementById('nextBtn').style.display = 'inline-block';
@@ -502,182 +411,12 @@
 
     function nextQuestion() {
       pos++;
-      if (pos < queue.length) renderQuestion();
-      else {
-        alert(`¡Has completado los 150 ejercicios de este módulo! Puntaje total: ${points} pts.`);
+      if (pos < queue.length) {
+        renderQuestion();
+      } else {
+        alert(`¡Felicidades! Completaste los 150 ejercicios. Puntaje: ${points} pts.`);
         navigate('home');
       }
-    }
-
-    // --- VALENCIAS Y THREE.JS ---
-    const VALENCIAS = {
-      H: 1, C: 4, O: 2, N: 3, S: 2, P: 3,
-      F: 1, Cl: 1, Br: 1, I: 1,
-      He: 0, Ne: 0, Ar: 0,
-      Li: 1, Na: 1, K: 1, Mg: 2, Ca: 2
-    };
-
-    const PERIODIC_ELEMENTS = [
-      { category: "No Metales", elements: [
-        { symbol: "H", name: "Hidrógeno", color: 0x94a3b8, size: 0.35 },
-        { symbol: "C", name: "Carbono", color: 0x334155, size: 0.65 },
-        { symbol: "N", name: "Nitrógeno", color: 0x3b82f6, size: 0.6 },
-        { symbol: "O", name: "Oxígeno", color: 0xef4444, size: 0.6 },
-        { symbol: "S", name: "Azufre", color: 0xeab308, size: 0.6 }
-      ]},
-      { category: "Halógenos", elements: [
-        { symbol: "F", name: "Flúor", color: 0x22c55e, size: 0.5 },
-        { symbol: "Cl", name: "Cloro", color: 0x14b8a6, size: 0.55 },
-        { symbol: "Br", name: "Bromo", color: 0x881337, size: 0.6 }
-      ]}
-    ];
-
-    let scene = null, camera, renderer, molecularGroup;
-    let isDragging = false, previousPosition = { x: 0, y: 0 };
-    let viewerMode = 'preset';
-    let activeAtomElement = { symbol: 'C', name: 'Carbono', color: 0x334155, size: 0.65 };
-    let atomsList = [], bondingPorts = [], raycaster, mouse, autoRotateTimer = null, pendingPlacement = null;
-
-    const MOLECULAR_DICTIONARY = {
-      "C4H10": { iupac: "butano", common: "n-butano" },
-      "C4H8": { iupac: "but-1-eno", common: "1-buteno" },
-      "C4H6": { iupac: "but-1-ino", common: "1-butino" },
-      "C6H6": { iupac: "benceno", common: "benceno" },
-      "C2H6O": { iupac: "etan-1-ol", common: "etanol" },
-      "C3H6O": { iupac: "propan-2-ona", common: "acetona" }
-    };
-
-    function updateRealTimeNaming() {
-      const formulaLine = document.getElementById('formulaLine');
-      const iupacLine = document.getElementById('iupacLine');
-      const commonLine = document.getElementById('commonLine');
-      if (!formulaLine || !iupacLine || !commonLine) return;
-      if (atomsList.length === 0) {
-        formulaLine.innerText = "Fórmula: -";
-        iupacLine.innerText = "IUPAC: -";
-        commonLine.innerText = "Común: -";
-        return;
-      }
-      let counts = {};
-      atomsList.forEach(a => counts[a.userData.symbol] = (counts[a.userData.symbol] || 0) + 1);
-      let formulaStr = (counts['C'] ? `C${counts['C']}` : '') + (counts['H'] ? `H${counts['H']}` : '') + (counts['O'] ? `O${counts['O']}` : '');
-      formulaLine.innerText = `Fórmula: ${formulaStr}`;
-      let found = MOLECULAR_DICTIONARY[formulaStr] || { iupac: "Compuesto orgánico", common: "Derivado" };
-      iupacLine.innerText = `IUPAC: ${found.iupac}`;
-      commonLine.innerText = `Común: ${found.common}`;
-    }
-
-    function init3D() {
-      const container = document.getElementById('canvas3dContainer');
-      if (!container || scene) return;
-      scene = new THREE.Scene();
-      camera = new THREE.PerspectiveCamera(50, container.clientWidth / container.clientHeight, 0.1, 1000);
-      camera.position.z = 14;
-      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      container.innerHTML = '';
-      container.appendChild(renderer.domElement);
-      scene.add(new THREE.AmbientLight(0xffffff, 0.9));
-      const light = new THREE.PointLight(0xffffff, 1.2);
-      light.position.set(10, 15, 15);
-      scene.add(light);
-      molecularGroup = new THREE.Group();
-      scene.add(molecularGroup);
-      raycaster = new THREE.Raycaster();
-      mouse = new THREE.Vector2();
-
-      container.addEventListener('mousedown', (e) => { isDragging = true; previousPosition = { x: e.clientX, y: e.clientY }; });
-      container.addEventListener('mousemove', (e) => {
-        if (!isDragging || !molecularGroup) return;
-        molecularGroup.rotation.y += (e.clientX - previousPosition.x) * 0.01;
-        molecularGroup.rotation.x += (e.clientY - previousPosition.y) * 0.01;
-        previousPosition = { x: e.clientX, y: e.clientY };
-      });
-      window.addEventListener('mouseup', () => isDragging = false);
-      renderPeriodicTableCatalog();
-      loadPreset('alkanes');
-      animate();
-    }
-
-    function createTextSprite(text) {
-      const canvas = document.createElement('canvas');
-      canvas.width = 128; canvas.height = 128;
-      const ctx = canvas.getContext('2d');
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-      ctx.beginPath(); ctx.arc(64, 64, 52, 0, Math.PI * 2); ctx.fill();
-      ctx.lineWidth = 8; ctx.strokeStyle = '#0f172a'; ctx.stroke();
-      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 56px sans-serif'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
-      ctx.fillText(text, 64, 66);
-      const texture = new THREE.CanvasTexture(canvas);
-      const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: texture, depthTest: false }));
-      sprite.scale.set(0.75, 0.75, 0.75);
-      return sprite;
-    }
-
-    function togglePeriodicModal() {
-      const modal = document.getElementById('periodicCatalogModal');
-      modal.style.display = modal.style.display === 'block' ? 'none' : 'block';
-    }
-
-    function renderPeriodicTableCatalog() {
-      const container = document.getElementById('periodicCategories');
-      if (!container) return;
-      container.innerHTML = '';
-      PERIODIC_ELEMENTS.forEach(cat => {
-        let div = document.createElement('div');
-        div.innerHTML = `<strong>${cat.category}</strong>`;
-        cat.elements.forEach(el => {
-          let b = document.createElement('button');
-          b.className = 'btn btn-secondary';
-          b.style.margin = '4px'; b.innerText = `${el.symbol} - ${el.name}`;
-          b.onclick = () => { activeAtomElement = el; togglePeriodicModal(); };
-          div.appendChild(b);
-        });
-        container.appendChild(div);
-      });
-    }
-
-    function handleExternalSearchInput(query) {
-      // search placeholder
-    }
-
-    function clearBuilder() {
-      atomsList = []; bondingPorts = [];
-      while(molecularGroup.children.length > 0) molecularGroup.remove(molecularGroup.children[0]);
-      updateRealTimeNaming();
-    }
-
-    function toggleCustomizerMode() {
-      viewerMode = viewerMode === 'preset' ? 'builder' : 'preset';
-      document.getElementById('presetToolbar').style.display = viewerMode === 'builder' ? 'none' : 'flex';
-      document.getElementById('builderToolbar').style.display = viewerMode === 'builder' ? 'flex' : 'none';
-      document.getElementById('builderFooterToolbar').style.display = viewerMode === 'builder' ? 'block' : 'none';
-      if (viewerMode === 'builder') clearBuilder();
-      else loadPreset('alkanes');
-    }
-
-    function loadPreset(type) {
-      loadMolecularModel(type);
-    }
-
-    function loadMolecularModel(type) {
-      if (!scene) init3D();
-      while(molecularGroup.children.length > 0) molecularGroup.remove(molecularGroup.children[0]);
-      atomsList = [];
-      const cMat = new THREE.MeshPhongMaterial({ color: 0x334155 });
-      const hMat = new THREE.MeshPhongMaterial({ color: 0x94a3b8 });
-      const oMat = new THREE.MeshPhongMaterial({ color: 0xef4444 });
-      
-      let c1 = new THREE.Mesh(new THREE.SphereGeometry(0.65), cMat);
-      c1.position.set(0,0,0);
-      molecularGroup.add(c1);
-      atomsList.push(c1);
-      updateRealTimeNaming();
-    }
-
-    function animate() {
-      requestAnimationFrame(animate);
-      if (renderer && scene && camera) renderer.render(scene, camera);
     }
   </script>
 </body>
